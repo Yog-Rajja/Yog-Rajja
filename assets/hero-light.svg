@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-labelledby="t d">
 <title id="t">Yog Rajja, founder of Suprfree</title>
+<desc id="d">YOG RAJJA spelled in contribution-graph squares. Founder, Suprfree. Building profit and growth software for Indian brands.</desc>
 <style>
 .n{animation:pop .45s cubic-bezier(.2,.8,.2,1) both;transform-box:fill-box;transform-origin:center}
 .b{animation:wave 9s ease-in-out infinite}
