@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: "30 1 * * *" # 07:00 IST
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/**, .github/workflows/cards.yml]
 
 permissions:
   contents: write
@@ -41,7 +44,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
           PROFILE_LOGIN: ${{ github.repository_owner }}
-        run: node scripts/build-cards.mjs
+        run: npm run build
 
       - name: Commit if anything changed
         if: steps.token.outputs.ok == 'true'
