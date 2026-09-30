@@ -28,8 +28,22 @@ const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberat
 
 // ---------------------------------------------------------------- data
 
+// GitHub's API and the CDN both throw the odd 502 at scheduled jobs, so retry with backoff
+// instead of failing the whole run.
+async function fetchRetry(url, init, tries = 4) {
+  for (let i = 1; ; i++) {
+    try {
+      const res = await fetch(url, init)
+      if (res.status < 500 || i === tries) return res
+    } catch (err) {
+      if (i === tries) throw err
+    }
+    await new Promise((r) => setTimeout(r, 1000 * 2 ** i))
+  }
+}
+
 async function gql(query, variables = {}) {
-  const res = await fetch("https://api.github.com/graphql", {
+  const res = await fetchRetry("https://api.github.com/graphql", {
     method: "POST",
     headers: { Authorization: `bearer ${TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
@@ -288,7 +302,7 @@ async function stackCard(t, icons) {
 async function loadIcons() {
   const icons = {}
   for (const [slug] of STACK) {
-    const res = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons@${SIMPLE_ICONS}/icons/${slug}.svg`)
+    const res = await fetchRetry(`https://cdn.jsdelivr.net/npm/simple-icons@${SIMPLE_ICONS}/icons/${slug}.svg`)
     const text = await res.text()
     const d = text.match(/ d="([^"]+)"/)?.[1]
     if (!d) throw new Error(`No path for ${slug}`)
