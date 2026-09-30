@@ -71,6 +71,7 @@ A few of the engineering problems I've worked through while building it:
 
 | Project | What it is |
 | --- | --- |
+| [**pixel-profile**](https://github.com/Yog-Rajja/pixel-profile) | The GitHub Action behind the header above. It draws your name in contribution squares, plus stats, language and stack cards, as plain SVGs with no third-party servers. |
 | [**samyak-fashion-jewellery**](https://github.com/Yog-Rajja/samyak-fashion-jewellery) | Storefront and shop manager for a jewellery business. Plain HTML, CSS and vanilla JS with a small Node/Express server, and an admin panel the owner uses to manage stock. |
 | [**Smart Companion**](https://github.com/Yog-Rajja/Sem4_Project) | AI goal planner. Describe a goal in plain English and it builds an editable roadmap of milestones, tasks and dates, with real learning resources attached to each step. |
 
@@ -96,7 +97,7 @@ A few of the engineering problems I've worked through while building it:
 <summary><sub>How this profile is built</sub></summary>
 <br>
 
-No third-party card services. [`scripts/build-cards.mjs`](scripts/build-cards.mjs) reads the GitHub GraphQL API and draws every SVG above: the pixel header, the stack strip and the activity card, each in a dark and a light version. A [workflow](.github/workflows/cards.yml) rebuilds them every morning, and [Platane/snk](https://github.com/Platane/snk) draws the snake. The code is MIT, so fork it and set `HERO_NAME` to draw your own name.
+No third-party card services. [`scripts/build-cards.mjs`](scripts/build-cards.mjs) reads the GitHub GraphQL API and draws every SVG above: the pixel header, the stack strip and the activity card, each in a dark and a light version. A [workflow](.github/workflows/cards.yml) rebuilds them every morning, and [Platane/snk](https://github.com/Platane/snk) draws the snake. It is packaged as a reusable Action, [**Yog-Rajja/pixel-profile**](https://github.com/Yog-Rajja/pixel-profile), so you can draw your own name in two minutes.
 
 </details>
 
