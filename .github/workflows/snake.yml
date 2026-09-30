@@ -1,0 +1,38 @@
+name: Contribution snake
+
+# Draws the contribution graph as a snake and publishes it to the `output` branch,
+# which the README links to. Uses the default token, so no secret is needed.
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/snake.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snake
+  cancel-in-progress: true
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-light.svg
+            dist/snake-dark.svg?palette=github-dark
+
+      - uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: output
+          build_dir: dist
+          commit_message: Update contribution snake
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
