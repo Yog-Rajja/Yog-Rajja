@@ -9,8 +9,8 @@
 
 <br><br>
 
-<a href="https://suprfree.com"><img src="https://img.shields.io/badge/suprfree.com-111111?style=flat-square&logo=googlechrome&logoColor=white" alt="suprfree.com"></a>
-<a href="https://suprfree.com/demo"><img src="https://img.shields.io/badge/Book_a_demo-26a641?style=flat-square&logo=googlecalendar&logoColor=white" alt="Book a demo"></a>
+<a href="https://suprfree.com/?utm_source=github&amp;utm_medium=profile"><img src="https://img.shields.io/badge/suprfree.com-111111?style=flat-square&logo=googlechrome&logoColor=white" alt="suprfree.com"></a>
+<a href="https://suprfree.com/demo?utm_source=github&amp;utm_medium=profile"><img src="https://img.shields.io/badge/Book_a_demo-26a641?style=flat-square&logo=googlecalendar&logoColor=white" alt="Book a demo"></a>
 <a href="mailto:yog.rajja@suprfree.com"><img src="https://img.shields.io/badge/yog.rajja@suprfree.com-111111?style=flat-square&logoColor=white" alt="Email"></a>
 <a href="https://cocomomedia.in"><img src="https://img.shields.io/badge/Cocomo_Media-111111?style=flat-square" alt="Cocomo Media"></a>
 
@@ -20,7 +20,7 @@
 
 ### Hi, I'm Yog.
 
-I run **[Suprfree](https://suprfree.com)**, a group that builds growth and profit infrastructure for Indian brands. I lead the product and write the code, from the database schema and marketplace integrations to the UI and the 3D on our website.
+I run **[Suprfree](https://suprfree.com/?utm_source=github&utm_medium=profile)**, a group that builds growth and profit infrastructure for Indian brands. I lead the product and write the code, from the database schema and marketplace integrations to the UI and the 3D on our website.
 
 Most of that code lives in private repositories, so the public graph here shows only part of the work.
 
@@ -30,7 +30,7 @@ Most of that code lives in private repositories, so the public graph here shows 
 
 <table>
   <tr>
-    <td width="170"><b><a href="https://suprfree.com">Suprone</a></b><br><sub>Profit OS for brands</sub></td>
+    <td width="170"><b><a href="https://suprfree.com/products/suprone?utm_source=github&amp;utm_medium=profile">Suprone</a></b><br><sub>Profit OS for brands</sub></td>
     <td>The real profit on every order, channel and campaign, in one place. Suprone connects a brand's store, marketplaces, ad accounts and couriers, and shows what is left after returns, RTO, fees, shipping and ad spend. Then it tells you what to fix.</td>
   </tr>
   <tr>
