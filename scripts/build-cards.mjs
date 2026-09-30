@@ -316,6 +316,11 @@ async function loadIcons() {
 
 // ---------------------------------------------------------------- write
 
+if (process.env.DRY_RUN) {
+  console.log(JSON.stringify({ ...stats, languages: shown.map((l) => `${l.name} ${l.pct.toFixed(1)}%`) }, null, 2))
+  process.exit(0)
+}
+
 await mkdir(OUT, { recursive: true })
 const icons = await loadIcons()
 for (const [name, t] of Object.entries(THEMES)) {
