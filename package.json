@@ -1,0 +1,12 @@
+{
+  "name": "yog-rajja-profile",
+  "private": true,
+  "type": "module",
+  "description": "Builds the profile README cards from the GitHub API.",
+  "scripts": {
+    "build": "node scripts/build-cards.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
