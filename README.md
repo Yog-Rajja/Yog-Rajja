@@ -92,6 +92,16 @@ A few of the engineering problems I've worked through while building it:
 
 <br><br>
 
+<details>
+<summary><sub>How this profile is built</sub></summary>
+<br>
+
+No third-party card services. [`scripts/build-cards.mjs`](scripts/build-cards.mjs) reads the GitHub GraphQL API and draws every SVG above: the pixel header, the stack strip and the activity card, each in a dark and a light version. A [workflow](.github/workflows/cards.yml) rebuilds them every morning, and [Platane/snk](https://github.com/Platane/snk) draws the snake. The code is MIT, so fork it and set `HERO_NAME` to draw your own name.
+
+</details>
+
+<br>
+
 <div align="center">
 <sub>Building from India. The easiest way to reach me is <a href="mailto:yog.rajja@suprfree.com">yog.rajja@suprfree.com</a>.</sub>
 </div>
