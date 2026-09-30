@@ -132,9 +132,11 @@ function rng(seed) {
   return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 2 ** 32)
 }
 
-const svg = (w, h, title, body, css = "") =>
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="t">
-<title id="t">${esc(title)}</title>
+// Screen readers get the title and a plain description of what the picture shows.
+const svg = (w, h, title, body, css = "", desc = "") =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-labelledby="t${desc ? " d" : ""}">
+<title id="t">${esc(title)}</title>${desc ? `
+<desc id="d">${esc(desc)}</desc>` : ""}
 ${css ? `<style>${css}</style>` : ""}
 ${body}
 </svg>
@@ -255,7 +257,7 @@ function hero(t) {
 <rect id="caret" x="${tx}" y="${typeY - fs2 + 2}" width="10" height="${fs2 + 2}" fill="${t.levels[4]}"/>
 <text x="${tx}" y="${linksY}" font-family="${MONO}" font-size="14" fill="${t.faint}">Suprone  ·  Suprnow  ·  Cocomo  ·  suprfree.com</text>`
 
-  return svg(W, H, "Yog Rajja, founder of Suprfree", body, css)
+  return svg(W, H, "Yog Rajja, founder of Suprfree", body, css, `${HERO_NAME} spelled in contribution-graph squares. Founder, Suprfree. ${line2}`)
 }
 
 // ---------------------------------------------------------------- stats: numbers and languages
@@ -304,7 +306,8 @@ ${nums}
 <g clip-path="url(#bar)">${bar}</g>
 ${legend}
 <text x="${W - 40}" y="${H - 22}" text-anchor="end" font-family="${MONO}" font-size="11" fill="${t.faint}">updated ${new Date().toISOString().slice(0, 10)}</text>`
-  return svg(W, H, "GitHub activity and languages", body)
+  return svg(W, H, "GitHub activity and languages", body, "",
+    `${metrics.map(([v, l]) => `${v} ${l}`).join(", ")}. Languages: ${shown.map((l) => `${l.name} ${l.pct.toFixed(1)}%`).join(", ")}.`)
 }
 
 // ---------------------------------------------------------------- stack: one ink colour, no logo soup
