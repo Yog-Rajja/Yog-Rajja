@@ -1,0 +1,4 @@
+# Keep generated SVGs and scripts byte-identical across Windows and Linux runners,
+# so the daily refresh only commits when the data actually changed.
+* text=auto eol=lf
+*.png binary
