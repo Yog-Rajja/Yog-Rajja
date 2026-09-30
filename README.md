@@ -85,6 +85,13 @@ A few of the engineering problems I've worked through while building it:
 
 <br><br>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Yog-Rajja/Yog-Rajja/output/snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/Yog-Rajja/Yog-Rajja/output/snake-light.svg" width="100%" alt="The last year of contributions, eaten by a snake">
+</picture>
+
+<br><br>
+
 <div align="center">
 <sub>Building from India. The easiest way to reach me is <a href="mailto:yog.rajja@suprfree.com">yog.rajja@suprfree.com</a>.</sub>
 </div>
