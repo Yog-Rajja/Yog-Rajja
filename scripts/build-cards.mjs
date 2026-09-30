@@ -21,6 +21,8 @@ const THEMES = {
     levels: ["#eff2f5", "#aceebb", "#4ac26b", "#2da44e", "#116329"],
   },
 }
+// Pinned so a new Simple Icons release cannot silently redraw the stack strip.
+const SIMPLE_ICONS = "16.33.0"
 const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
 
@@ -286,7 +288,7 @@ async function stackCard(t, icons) {
 async function loadIcons() {
   const icons = {}
   for (const [slug] of STACK) {
-    const res = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`)
+    const res = await fetch(`https://cdn.jsdelivr.net/npm/simple-icons@${SIMPLE_ICONS}/icons/${slug}.svg`)
     const text = await res.text()
     const d = text.match(/ d="([^"]+)"/)?.[1]
     if (!d) throw new Error(`No path for ${slug}`)
