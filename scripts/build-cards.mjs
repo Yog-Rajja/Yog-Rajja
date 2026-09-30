@@ -107,8 +107,9 @@ const totalBytes = [...langs.values()].reduce((s, l) => s + l.size, 0)
 const topLangs = [...langs.entries()]
   .map(([name, l]) => ({ name, color: l.color, pct: (l.size / totalBytes) * 100 }))
   .sort((a, b) => b.pct - a.pct)
-const shown = topLangs.slice(0, 6)
-const otherPct = topLangs.slice(6).reduce((s, l) => s + l.pct, 0)
+// Slivers under 1% are unreadable in the bar, so they fold into "Other".
+const shown = topLangs.filter((l) => l.pct >= 1).slice(0, 6)
+const otherPct = 100 - shown.reduce((s, l) => s + l.pct, 0)
 if (otherPct >= 0.5) shown.push({ name: "Other", color: "#8b949e", pct: otherPct })
 
 const stats = {
