@@ -48,6 +48,7 @@ async function gql(query, variables = {}) {
     headers: { Authorization: `bearer ${TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
   })
+  if (res.status === 401) throw new Error("GitHub rejected the token (401). Check GH_TOKEN or the PROFILE_TOKEN secret.")
   const json = await res.json()
   if (json.errors) throw new Error(JSON.stringify(json.errors))
   return json.data
@@ -73,6 +74,7 @@ const data = await gql(
 )
 
 const user = data.user
+if (!user) throw new Error(`GitHub user "${LOGIN}" not found. Check PROFILE_LOGIN.`)
 const cc = user.contributionsCollection
 const days = cc.contributionCalendar.weeks.flatMap((w) => w.contributionDays)
 
